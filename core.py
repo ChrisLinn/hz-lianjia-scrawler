@@ -535,14 +535,16 @@ def get_rent_perregion(city, district):
         i = 0
         log_progress("GetRentByRegionlist", district, page + 1, total_pages)
         data_source = []
-        for ultag in soup.findAll("ul", {"class": "house-lst"}):
-            for name in ultag.find_all('li'):
+        for ultag in soup.findAll("div", {"class": "content__list"}):
+            for name in ultag.find_all("div", {"class": "content__list--item--main"}):
                 i = i + 1
                 info_dict = {}
                 try:
-                    housetitle = name.find("div", {"class": "info-panel"})
+                    housetitle = name.find("p", {"class": "content__list--item--title"})
+                    print housetitle.a.get_text().strip()
+                    print housetitle.a.get("href")
                     info_dict.update(
-                        {u'title': housetitle.h2.a.get_text().strip()})
+                        {u'title': housetitle.a.get_text().strip()})
                     info_dict.update({u'link': housetitle.a.get("href")})
                     houseID = name.get("data-housecode")
                     info_dict.update({u'houseID': houseID})
