@@ -443,7 +443,7 @@ def get_house_perregion(city, district):
         raise RuntimeError("Finish at %s because total_pages is None" % row)
 
     for page in range(total_pages):
-        if page > 0:
+        if page > 0:            
             url_page = baseUrl + u"ershoufang/%s/pg%d/" % (district, page)
             source_code = misc.get_source_code(url_page)
             soup = BeautifulSoup(source_code, 'lxml')
@@ -522,13 +522,13 @@ def get_rent_perregion(city, district):
     soup = BeautifulSoup(source_code, 'lxml')
     if check_block(soup):
         return
-    total_pages = misc.get_total_pages(url)
+    total_pages = misc.get_total_pages_for_rent(url)
     if total_pages == None:
         row = model.Rentinfo.select().count()
         raise RuntimeError("Finish at %s because total_pages is None" % row)
 
     for page in range(total_pages):
-        if page > 0:
+        if page > 0:            
             url_page = baseUrl + u"zufang/%s/pg%d/" % (district, page)
             source_code = misc.get_source_code(url_page)
             soup = BeautifulSoup(source_code, 'lxml')

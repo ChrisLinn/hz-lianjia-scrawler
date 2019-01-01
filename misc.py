@@ -64,6 +64,23 @@ def get_total_pages(url):
     total_pages = int(page_info_str.split(':')[1])
     return total_pages
 
+def get_total_pages_for_rent(url):
+    source_code = get_source_code(url)
+    soup = BeautifulSoup(source_code, 'lxml')
+    total_pages = 0
+    try:
+        page_info = soup.find('div', {'class': 'content__pg'})
+    except AttributeError as e:
+        page_info = None
+
+    # if it doesnot get total page, then return default value 50
+    if page_info == None:
+        return 50
+    # '{"totalPage":5,"curPage":1}'
+    page_info_str = page_info.get('data-totalpage')
+    total_pages = int(page_info_str)
+    return total_pages
+
 
 def get_sh_total_pages(url):
     source_code = get_source_code(url)
