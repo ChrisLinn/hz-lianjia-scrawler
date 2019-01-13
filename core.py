@@ -284,6 +284,7 @@ def get_community_perregion(city, regionname=u'xicheng'):
         raise RuntimeError("Finish at %s because total_pages is None" % row)
 
     for page in range(total_pages):
+        # page = 15
         if page > 0:
             url_page = baseUrl + u"xiaoqu/" + regionname + "/pg%d/" % page
             source_code = misc.get_source_code(url_page)
@@ -334,11 +335,12 @@ def get_community_perregion(city, regionname=u'xicheng'):
             except:
                 continue
             # communityinfo insert into mysql
-            data_source.append(info_dict)
-            # model.Community.insert(**info_dict).upsert().execute()
-        with model.database.atomic():
-            if data_source:
-                model.Community.insert_many(data_source).upsert().execute()
+            # print info_dict
+            # data_source.append(info_dict)
+            model.Community.insert(**info_dict).upsert().execute()
+        # with model.database.atomic():
+        #     if data_source:
+        #         model.Community.insert_many(data_source).upsert().execute()
         time.sleep(1)
 
 
