@@ -187,7 +187,7 @@ def get_sell_percommunity(city, communityname):
 
     if check_block(soup):
         return
-    total_pages = misc.get_total_pages(url)
+    total_pages = misc.get_total_pages_for_sell(url)
 
     if total_pages == None:
         row = model.Sellinfo.select().count()
