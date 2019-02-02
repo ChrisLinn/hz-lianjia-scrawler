@@ -15,7 +15,7 @@ if __name__ == "__main__":
     city = settings.CITY
     model.database_init()
     core.GetHouseByRegionlist(city, regionlist)
-    core.GetRentByRegionlist(city, regionlist)
+    # core.GetRentByRegionlist(city, regionlist) # TODO: fix different types
     # Init,scrapy celllist and insert database; could run only 1st time
     core.GetCommunityByRegionlist(city, regionlist)
     communitylist = get_communitylist(city)  # Read celllist from database

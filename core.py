@@ -543,8 +543,8 @@ def get_rent_perregion(city, district):
                 info_dict = {}
                 try:
                     housetitle = name.find("p", {"class": "content__list--item--title"})
-                    print housetitle.a.get_text().strip()
-                    print housetitle.a.get("href")
+                    # print housetitle.a.get_text().strip()
+                    # print housetitle.a.get("href")
                     info_dict.update(
                         {u'title': housetitle.a.get_text().strip()})
                     info_dict.update({u'link': housetitle.a.get("href")})
