@@ -3,7 +3,7 @@
 
 Forked from [XuefengHuang's lianjia-scrawler](https://github.com/XuefengHuang/lianjia-scrawler) and adapted for Hangzhou.
 
-You can visit http://ChrisLinn.github.io/hz-lianjia-scrawler for the charts I generate.
+__You can visit http://ChrisLinn.github.io/hz-lianjia-scrawler for the charts I generate.__
 
 ## 使用说明
 + 下载源码并安装依赖包
@@ -25,7 +25,7 @@ DBUSER = 'root'
 DBPASSWORD = ''
 DBHOST = '127.0.0.1'
 DBPORT = 3306
-CITY = 'hz' # only one, shanghai=sh shenzhen=sh......
+CITY = 'hz'
 REGIONLIST = [u'xihu', u'xiacheng', u'jianggan', u'gongshu', u'shangcheng', u'binjiang', u'yuhang', u'xiaoshan', u'tonglu1', u'chunan1', u'jiande', u'fuyang', u'linan', u'xiasha']
 ```
 
