@@ -67,6 +67,13 @@ core.GetSellByCommunitylist(city, communitylist)
 
 ```
 
+##
+```
+mysql -u username -p dbname -e "select * from community" -B > community.tsv
+mysql -u username -p dbname -e "select * from hisprice" -B > hisprice.tsv
+mysql -u username -p dbname -e "select * from houseinfo" -B > houseinfo.tsv
+mysql -u username -p dbname -e "select * from sellinfo" -B > sellinfo.tsv
+```
 
 ## 分析房源信息
 + 详情请参考[`data`](https://github.com/ChrisLinn/hz-lianjia-scrawler/blob/master/data/lianjia.ipynb)目录
